@@ -3,7 +3,7 @@ class MyDuration {
 
   MyDuration(this._milliseconds);
 
-  MyDuration.fromHours(int hours) : _milliseconds * 3600
+  MyDuration.fromHours(int hours) : _milliseconds = (3600*1000*hours);
 
 //   // Display the duration in a readable format
 //   @override
