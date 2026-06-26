@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:theory/START-CODE/1%20-%20START%20CODE/3%20%20-%20Grocery%20App%20-%20Start/data/mock_grocery_data.dart';
+import 'package:theory/START-CODE/1%20-%20START%20CODE/3%20%20-%20Grocery%20App%20-%20Start/models/grocery.dart';
 import 'package:theory/START-CODE/1%20-%20START%20CODE/3%20%20-%20Grocery%20App%20-%20Start/ui/screens/groceries/grocery_form.dart';
-import '../../../data/mock_grocery_data.dart';
 import 'grocery_tile.dart';
 class GroceryScreen extends StatefulWidget {
   const GroceryScreen({super.key});
@@ -10,18 +11,19 @@ class GroceryScreen extends StatefulWidget {
 }
 
 class _GroceryScreenState extends State<GroceryScreen> {
-  void onCreate() {
+  void onCreate() async {
     
     // ---------------------------------------------
     // Navigate to the form screen using showModalBottomSheet
     // ---------------------------------------------
 
-    showModalBottomSheet(
-      context: context,
-      builder: (BuildContext context) {
-        return GroceryForm();
-      },
-    );
+   final newItem = await showModalBottomSheet<GroceryItem>(context: context, builder: (context)=> GroceryForm());
+
+   if (newItem == null) return;
+
+   setState(() {
+     allGroceryItems.add(newItem);
+   });
 
     // https://api.flutter.dev/flutter/material/showModalBottomSheet.html
   }
