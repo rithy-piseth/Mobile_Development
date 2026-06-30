@@ -27,7 +27,7 @@ class _ExpensesScreenState extends State<ExpensesScreen> {
     // );
     if (newExpense != null) {
      setState(() {
-        allExpenses.add(newExpense);  // add the new expense to the list and refresh UI
+        allExpenses.add(newExpense);  
      });
     }
   }

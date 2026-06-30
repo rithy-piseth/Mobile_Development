@@ -15,20 +15,20 @@ class _ExpenseFormState extends State<ExpenseForm> {
   final _amountController = TextEditingController();
   String? _quantityError;
 
-  // void onCheckQuantity(){
-  //   double? amount = double.tryParse(_amountController.text);
-  //   if (amount == null){
-  //     setState(() {
-  //       _quantityError = "Please Enter a valid number";
-  //     });
-  //   }else if(amount < 0 || amount > 100){
-  //   setState(() {
-  //     _quantityError = "Please enter the number between 0 - 100";
-  //   });
-  //   }else{
-  //     _quantityError = null;
-  //   }
-  // }
+  void onCheckQuantity(){
+    double? amount = double.tryParse(_amountController.text);
+    if (amount == null){
+      setState(() {
+        _quantityError = "Please Enter a valid number";
+      });
+    }else if(amount < 0 || amount > 100){
+    setState(() {
+      _quantityError = "Please enter the number between 0 - 100";
+    });
+    }else{
+      _quantityError = null;
+    }
+  }
 
 
 
